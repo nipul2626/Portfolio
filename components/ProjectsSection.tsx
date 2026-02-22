@@ -10,7 +10,7 @@ interface Project {
   features: string[]
   techStack: string[]
   githubUrl?: string
-  github FrontendUrl?: string
+  githubFrontendUrl?: string
   githubBackendUrl?: string
   liveUrl?: string
   planetType: string
