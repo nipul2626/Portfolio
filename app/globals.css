@@ -1,0 +1,265 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Cosmic Deep Space Colors */
+  --background: #000000;
+  --background-secondary: #0a0a1a;
+  --background-tertiary: #1a0033;
+  
+  /* Foreground & Text */
+  --foreground: #ffffff;
+  --foreground-secondary: #e0e0e0;
+  --foreground-tertiary: #a0a0a0;
+  
+  /* Cards & Components */
+  --card: rgba(255, 255, 255, 0.03);
+  --card-foreground: #ffffff;
+  --card-border: rgba(255, 255, 255, 0.1);
+  
+  /* Popover */
+  --popover: rgba(255, 255, 255, 0.05);
+  --popover-foreground: #ffffff;
+  
+  /* Primary & Accents */
+  --primary: #a855f7;
+  --primary-foreground: #ffffff;
+  --primary-light: #c084fc;
+  
+  /* Secondary - Stellar Blue */
+  --secondary: #3b82f6;
+  --secondary-foreground: #ffffff;
+  --secondary-light: #60a5fa;
+  
+  /* Accent - Pulsar Pink */
+  --accent: #ec4899;
+  --accent-foreground: #ffffff;
+  --accent-light: #f472b6;
+  
+  /* Cosmic Orange */
+  --cosmic-orange: #f97316;
+  
+  /* Muted */
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: #a0a0a0;
+  
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Border & Input */
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.1);
+  
+  /* Ring & Focus */
+  --ring: rgba(168, 85, 247, 0.5);
+  
+  /* Chart Colors */
+  --chart-1: #a855f7;
+  --chart-2: #3b82f6;
+  --chart-3: #ec4899;
+  --chart-4: #f97316;
+  --chart-5: #fbbf24;
+  
+  /* Radius */
+  --radius: 0.75rem;
+  
+  /* Glow Effects */
+  --glow-star: 0 0 20px rgba(255, 255, 255, 0.8);
+  --glow-nebula: 0 0 40px rgba(168, 85, 247, 0.6);
+  --glow-supernova: 0 0 60px rgba(255, 255, 255, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-rajdhani), sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
+  --font-serif: var(--font-orbitron), sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #000000 0%, #0a0a1a 50%, #1a0033 100%);
+    min-height: 100vh;
+  }
+  
+  /* Typography Customization */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-orbitron);
+    font-weight: 700;
+  }
+  
+  body, p, span, div, a {
+    font-family: var(--font-rajdhani);
+  }
+  
+  code, pre {
+    font-family: var(--font-space-mono);
+  }
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Particle Animation */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: var(--glow-nebula);
+  }
+  50% {
+    box-shadow: var(--glow-supernova);
+  }
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Scroll Progress Bar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.6);
+}
+
+/* Intersection Observer Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-in {
+  animation: slideInUp 0.6s ease-out forwards !important;
+}
+
+/* Button hover effects */
+button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Smooth scroll behavior */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Responsive Typography Adjustments */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+}
