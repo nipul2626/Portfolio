@@ -40,13 +40,15 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 py-20 text-center relative z-10">
         {/* Cosmic title */}
         <h1
-          ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-black font-serif mb-6 text-white leading-tight tracking-tight"
-          style={{
-            textShadow: '0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(59, 130, 246, 0.3)',
-          }}
+            ref={titleRef}
+            className="text-5xl md:text-7xl lg:text-8xl font-black font-serif mb-6 text-white leading-tight"
+            style={{
+              textShadow:
+                  '0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(59, 130, 246, 0.3)',
+            }}
         >
-          NIPUL  RATHOD
+          <span className="mr-4">NIPUL</span>
+          <span>RATHOD</span>
         </h1>
 
         {/* Subtitle with glow */}
