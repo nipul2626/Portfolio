@@ -44,6 +44,9 @@ export const Header = () => {
           <Link href="#contact" className="text-gray-300 hover:text-purple-300 transition-colors text-sm font-medium">
             Contact
           </Link>
+          <Link href="/transmissions" className="text-gray-300 hover:text-purple-300 transition-colors text-sm font-medium">
+            Transmissions
+          </Link>
           <a
             href="https://github.com"
             target="_blank"
@@ -102,6 +105,13 @@ export const Header = () => {
               className="text-gray-300 hover:text-purple-300 transition-colors"
             >
               Contact
+            </Link>
+            <Link
+              href="/transmissions"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-gray-300 hover:text-purple-300 transition-colors"
+            >
+              Transmissions
             </Link>
             <a
               href="https://github.com"

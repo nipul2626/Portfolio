@@ -1,9 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { saveTransmission } from '@/lib/transmission-storage'
 
 export const ContactSection = () => {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -105,12 +108,26 @@ export const ContactSection = () => {
 
     // Simulate form submission
     setTimeout(() => {
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      setCharacterCount(0)
-      setTimeout(() => {
-        setSubmitStatus('idle')
-      }, 5000)
+      try {
+        saveTransmission({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          date: new Date().toLocaleString(),
+        })
+
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        setCharacterCount(0)
+
+        setTimeout(() => {
+          router.push('/transmissions')
+        }, 2500)
+      } catch {
+        setSubmitStatus('error')
+        setTimeout(() => setSubmitStatus('idle'), 3000)
+      }
       setIsSubmitting(false)
     }, 2000)
   }
