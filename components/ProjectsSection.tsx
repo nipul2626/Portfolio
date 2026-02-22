@@ -99,7 +99,7 @@ export const ProjectsSection = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number | null>(null)
   const timeRef = useRef(0)
 
   useEffect(() => {

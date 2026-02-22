@@ -44,7 +44,7 @@ export const AboutSection = () => {
         {/* Section Title */}
         <div className="mb-16 md:mb-24">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-serif text-white mb-4 text-balance">
-            About The Mission
+            About Me
           </h2>
           <p className="text-purple-300 text-lg md:text-xl max-w-2xl">
             I'm a full-stack developer passionate about creating immersive digital experiences through innovative technology and creative problem-solving.
@@ -82,21 +82,21 @@ export const AboutSection = () => {
                   <span className="w-2 h-2 bg-purple-500 rounded-full" />
                   Frontend Stack
                 </p>
-                <p className="text-gray-400 text-sm md:text-base">React, Next.js, TypeScript, Tailwind CSS, Framer Motion</p>
+                <p className="text-gray-400 text-sm md:text-base">React, Next.js, TypeScript, Tailwind CSS, Java, XML</p>
               </div>
               <div>
                 <p className="text-blue-300 font-semibold mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 bg-blue-500 rounded-full" />
                   Backend Stack
                 </p>
-                <p className="text-gray-400 text-sm md:text-base">Node.js, Express, PostgreSQL, MongoDB, Firebase</p>
+                <p className="text-gray-400 text-sm md:text-base">Node.js, Express, PostgreSQL, MongoDB, Firebase, PHP, JSON Handling</p>
               </div>
               <div>
                 <p className="text-pink-300 font-semibold mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 bg-pink-500 rounded-full" />
                   Tools & Platforms
                 </p>
-                <p className="text-gray-400 text-sm md:text-base">Git, Docker, AWS, Vercel, GraphQL, REST APIs</p>
+                <p className="text-gray-400 text-sm md:text-base">Git, Docker, AWS, Vercel, GraphQL, REST APIs, Postman</p>
               </div>
             </div>
           </div>

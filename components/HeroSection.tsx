@@ -46,12 +46,12 @@ export const HeroSection = () => {
             textShadow: '0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(59, 130, 246, 0.3)',
           }}
         >
-          NIPUL PRAMOD RATHOD
+          NIPUL  RATHOD
         </h1>
 
         {/* Subtitle with glow */}
         <p className="text-xl md:text-2xl text-purple-200 mb-8 font-light max-w-3xl mx-auto">
-          Space Explorer & Full Stack Developer
+           Full Stack Developer
         </p>
 
         {/* Description */}
