@@ -8,6 +8,14 @@ interface TrailPoint {
   timestamp: number
 }
 
+interface MagneticButton {
+  element: HTMLElement
+  originalX: number
+  originalY: number
+  currentX: number
+  currentY: number
+}
+
 export const CursorTrail = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const trailPoints = useRef<TrailPoint[]>([])
@@ -16,6 +24,7 @@ export const CursorTrail = () => {
   const animationFrameRef = useRef<number>()
   const [isMobile, setIsMobile] = useState(false)
   const [isOverInteractive, setIsOverInteractive] = useState(false)
+  const magneticButtons = useRef<Map<HTMLElement, MagneticButton>>(new Map())
 
   useEffect(() => {
     // Check if mobile/touch device
@@ -38,6 +47,30 @@ export const CursorTrail = () => {
     }
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
+
+    // Track all interactive buttons for magnetic effect
+    const findMagneticButtons = () => {
+      magneticButtons.current.clear()
+      const buttons = document.querySelectorAll('button, a, [role="button"]')
+      buttons.forEach((el) => {
+        const htmlEl = el as HTMLElement
+        const rect = htmlEl.getBoundingClientRect()
+        const centerX = rect.left + rect.width / 2
+        const centerY = rect.top + rect.height / 2
+        
+        if (!magneticButtons.current.has(htmlEl)) {
+          magneticButtons.current.set(htmlEl, {
+            element: htmlEl,
+            originalX: centerX,
+            originalY: centerY,
+            currentX: centerX,
+            currentY: centerY,
+          })
+        }
+      })
+    }
+
+    findMagneticButtons()
 
     // Track mouse position
     const handleMouseMove = (e: MouseEvent) => {
@@ -64,6 +97,46 @@ export const CursorTrail = () => {
         target.closest('button') ||
         target.style.cursor === 'pointer'
       setIsOverInteractive(!!isInteractive)
+
+      // Update magnetic buttons on EVERY mouse move
+      magneticButtons.current.forEach((button) => {
+        const rect = button.element.getBoundingClientRect()
+        const centerX = rect.left + rect.width / 2
+        const centerY = rect.top + rect.height / 2
+        
+        const dx = e.clientX - centerX
+        const dy = e.clientY - centerY
+        const distance = Math.sqrt(dx * dx + dy * dy)
+        
+        const MAGNETIC_RADIUS = 80
+        const STRENGTH = 0.3
+        
+        if (distance < MAGNETIC_RADIUS) {
+          // Pull button toward cursor
+          const moveX = (dx * STRENGTH)
+          const moveY = (dy * STRENGTH)
+          button.currentX = centerX + moveX
+          button.currentY = centerY + moveY
+          
+          // Apply transform
+          button.element.style.transform = `translate(${moveX}px, ${moveY}px)`
+          button.element.style.transition = 'none'
+        } else {
+          // Spring back when cursor moves away
+          button.currentX = centerX
+          button.currentY = centerY
+          button.element.style.transform = 'translate(0, 0)'
+          button.element.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
+        }
+      })
+    }
+
+    const handleMouseLeave = () => {
+      // Reset all buttons immediately on mouse leave
+      magneticButtons.current.forEach((button) => {
+        button.element.style.transform = 'translate(0, 0)'
+        button.element.style.transition = 'none'
+      })
     }
 
     // Animate cursor and trail
@@ -119,11 +192,13 @@ export const CursorTrail = () => {
     animate()
 
     window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mouseleave', handleMouseLeave)
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
       window.removeEventListener('resize', checkMobile)
       window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseleave', handleMouseLeave)
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current)
       }

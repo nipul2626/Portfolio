@@ -2,6 +2,7 @@ import { ParallaxBackground } from '@/components/ParallaxBackground'
 import { ScrollProgress } from '@/components/ScrollProgress'
 import { CursorTrail } from '@/components/CursorTrail'
 import { CosmicElements } from '@/components/CosmicElements'
+import { RealisticPlanets } from '@/components/RealisticPlanets'
 import { Header } from '@/components/Header'
 import { HeroSection } from '@/components/HeroSection'
 import { AboutSection } from '@/components/AboutSection'
@@ -19,6 +20,9 @@ export default function Home() {
 
       {/* Cosmic Elements - Shooting Stars & Planets */}
       <CosmicElements />
+
+      {/* Realistic Background Planets */}
+      <RealisticPlanets />
 
       {/* Scroll Progress Indicator */}
       <ScrollProgress />
