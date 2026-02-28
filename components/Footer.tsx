@@ -47,17 +47,17 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="https://twitter.com"
+                  href="https://x.com/nipul9678"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-purple-300 transition-colors text-sm"
                 >
-                  Twitter
+                  X
                 </Link>
               </li>
               <li>
                 <Link
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/nipul-rathod-7294053a7/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-purple-300 transition-colors text-sm"
@@ -67,7 +67,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="https://github.com"
+                  href="https://github.com/nipul2626"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-purple-300 transition-colors text-sm"

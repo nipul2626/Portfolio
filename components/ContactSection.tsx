@@ -158,8 +158,8 @@ export const ContactSection = () => {
             <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">📧</div>
             <h3 className="text-xl font-bold text-blue-300 mb-2 font-serif">TRANSMISSION LINK</h3>
             <p className="text-gray-400 text-sm md:text-base">
-              <Link href="mailto:hello@nipul.dev" className="hover:text-blue-400 transition-colors">
-                hello@nipul.dev
+              <Link href="mailto:nipulrathod34@gmail.com" className="hover:text-blue-400 transition-colors">
+                nipulrathod34@gmail.com
               </Link>
             </p>
           </div>
@@ -169,7 +169,7 @@ export const ContactSection = () => {
             <h3 className="text-xl font-bold text-purple-300 mb-2 font-serif">PROFESSIONAL NETWORK</h3>
             <p className="text-gray-400 text-sm md:text-base">
               <Link
-                href="https://linkedin.com/in/nipulpramod"
+                href="https://www.linkedin.com/in/nipul-rathod-7294053a7/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-purple-400 transition-colors"

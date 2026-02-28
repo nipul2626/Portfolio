@@ -14,30 +14,49 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    role: 'Product Manager',
-    company: 'TechStart Inc',
+    name: 'Rahul Deshmukh',
+    role: 'Co-Founder',
+    company: 'QuickBasket Pune',
     message:
-      'Nipul transformed our entire product experience with his innovative approach. His technical expertise combined with design thinking resulted in a 40% increase in user engagement.',
-    avatar: '👩‍💼',
+        'We approached Nipul for building our grocery delivery app MVP. He delivered clean UI and smooth performance even on low-end devices.',
+    avatar: '👨‍💼',
   },
   {
     id: 2,
-    name: 'Michael Chen',
-    role: 'CTO',
-    company: 'CloudFlow Solutions',
+    name: 'Priya Sharma',
+    role: 'Project Manager',
+    company: 'InnoByte Solutions',
     message:
-      'The architecture and code quality delivered were exceptional. Nipul solved complex problems with elegant solutions and maintained excellent communication throughout the project.',
-    avatar: '👨‍💻',
+        'Strong Kotlin knowledge and very proactive in suggesting better architecture decisions.',
+    avatar: '👩‍💻',
   },
   {
     id: 3,
-    name: 'Elena Rodriguez',
+    name: 'Amit Patil',
     role: 'Founder',
-    company: 'Creative Digital',
+    company: 'LocalKart',
     message:
-      'Working with Nipul was a game-changer for our startup. He not only built our MVP but also mentored our team on best practices. Highly recommended!',
-    avatar: '👩‍🔬',
+        'Handled everything from UI design to database integration professionally.',
+    avatar: '👨‍🚀',
+  },
+
+  {
+    id: 4,
+    name: 'Sneha Kulkarni',
+    role: 'UI/UX Designer',
+    company: 'PixelCraft Studio',
+    message:
+        'Nipul collaborated seamlessly with our design team and translated Figma layouts into pixel-perfect Android screens.',
+    avatar: '👩‍🎨',
+  },
+  {
+    id: 5,
+    name: 'Rohan Mehta',
+    role: 'Tech Lead',
+    company: 'DevNest Labs',
+    message:
+        'Clean code structure, good documentation, and solid understanding of backend integration. Would definitely work with him again.',
+    avatar: '👨‍💻',
   },
 ]
 
